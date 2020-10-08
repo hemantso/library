@@ -13,37 +13,78 @@
   <title>Library</title>
 </head>
 
-<body>
-  <div class="main-container">
-    <div class="title">
-      <a href="https://github.com/hemant-soni-vst-au4/library" target="_blank">Library</a>
-    </div>
-    <div class="addBook-container">
-      <button id="openForm">Add Book</button>
-    </div>
-    <div class="modal" style="display: none;">
-      <div class="form-container">
-        <div class="inputDiv">
-          <label for="">Title</label>
-          <input type="text" id="titleInput">
+<body class="container-fluid">
+  <header>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand mx-auto font-weight-bold" href="#">Library</a>
+    </nav>
+  </header>
+
+  <main class="row">
+    <section class="mx-auto">
+      <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Create Book</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="title">Title</label>
+          <input type="text" id="title" class="form-control validate" required>
+          
         </div>
-        <div class="inputDiv">
-          <label for="">Author</label>
-          <input type="text" id="authorInput">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="author">Author</label>
+          <input type="text" id="author" class="form-control validate" required>
+          
         </div>
-        <div class="inputDiv">
-          <label for="">Pages</label>
-          <input type="text" id="pagesInput">
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="pages">Pages</label>
+          <input type="text" id="pages" class="form-control validate" required>
+          
         </div>
-        <div class="inputDiv" id="statusDiv">
-          Already read? <input type="checkbox" id="statusInput">
-        </div>
-        <button class="bookButton" id="addBook">Add</button>
-        <button class="bookButton" id="cancel">Cancel</button>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-success">Create</button>
       </div>
     </div>
-    <div class="books"></div>
   </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Add Book</a>
+</div>
+    </section>
+    <section class="col-12">
+      <h4>Book List</h4>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col-4">Title</th>
+            <th scope="col-4">Author</th>
+            <th scope="col-3">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-row">
+            <td class="title"></td>
+            <td class='author'></td>
+            <td class='status'></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
   <!-- Optional JavaScript -->
   <script src="js/index.js" type="module"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
