@@ -14,38 +14,36 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">Library</a>
-    </nav>
-  </header>
-  <main class="row">
-    <section class="col-8">
-      <h4>Book List</h4>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col-1"></th>
-            <th scope="col-4">Title</th>
-            <th scope="col-4">Author</th>
-            <th scope="col-3">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table-row">
-            <th scope="row" class="id"></th>
-            <td class="title"></td>
-            <td class='author'></td>
-            <td class='status'></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <aside class="col-4">
-      Add books
-    </aside>
-  </main>
+  <div class="main-container">
+    <div class="title">
+      <a href="https://github.com/hemant-soni-vst-au4/library" target="_blank">Library</a>
+    </div>
+    <div class="addBook-container">
+      <button id="openForm">Add Book</button>
+    </div>
+    <div class="modal" style="display: none;">
+      <div class="form-container">
+        <div class="inputDiv">
+          <label for="">Title</label>
+          <input type="text" id="titleInput">
+        </div>
+        <div class="inputDiv">
+          <label for="">Author</label>
+          <input type="text" id="authorInput">
+        </div>
+        <div class="inputDiv">
+          <label for="">Pages</label>
+          <input type="text" id="pagesInput">
+        </div>
+        <div class="inputDiv" id="statusDiv">
+          Already read? <input type="checkbox" id="statusInput">
+        </div>
+        <button class="bookButton" id="addBook">Add</button>
+        <button class="bookButton" id="cancel">Cancel</button>
+      </div>
+    </div>
+    <div class="books"></div>
+  </div>
   <!-- Optional JavaScript -->
   <script src="js/index.js" type="module"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
