@@ -1,4 +1,4 @@
-import books from './data';
+import books from "./data.js"; // eslint-disable-line
 
 const myLibrary = [];
 
@@ -8,6 +8,13 @@ function Book(title, author, pages, status = false) {
   this.pages = pages;
   this.status = status;
 }
+
+const addBookToLibrary = (title, author, pages) => {
+  const book = new Book(title, author, pages);
+  myLibrary.push(book);
+  renderTable(); // eslint-disable-line
+};
+
 const findQueryAttachAction = (nameQuery, action) => {
   const selectedEl = document.querySelectorAll(nameQuery);
   selectedEl.forEach((el) => {
@@ -22,11 +29,7 @@ function handleStatusChanges(e) {
   statusSpan.classList.remove('badge-secondary');
   statusSpan.classList.add('badge-success');
 }
-function handleDelete(e) {
-  const RowId = e.currentTarget.id;
-  myLibrary.splice(RowId, 1);
-  renderTable(); // eslint-disable-line 
-}
+
 const renderTable = () => {
   const tableBody = document.getElementById('table-body');
   let talbeContent = '';
@@ -37,14 +40,15 @@ const renderTable = () => {
   });
   tableBody.innerHTML = talbeContent;
   findQueryAttachAction('.status', handleStatusChanges);
-  findQueryAttachAction('.del', handleDelete);
+  findQueryAttachAction(".del", handleDelete); // eslint-disable-line
 };
 
-const addBookToLibrary = (title, author, pages) => {
-  const book = new Book(title, author, pages);
-  myLibrary.push(book);
+function handleDelete(e) {
+  const RowId = e.currentTarget.id;
+  myLibrary.splice(RowId, 1);
   renderTable();
-};
+}
+
 function handleClick() {
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
@@ -55,11 +59,11 @@ function handleClick() {
     author.value = '';
     pages.value = '';
   } else {
-    alert('Book has not been added because of the missing fields'); // eslint-disable-line no-alert
+    alert("Book has not been added because of the missing fields"); // eslint-disable-line
   }
 }
 
-window.onload = () => {
+window.onload = function () {     // eslint-disable-line
   books.forEach(({ title, author, pages }) => {
     addBookToLibrary(title, author, pages);
   });
