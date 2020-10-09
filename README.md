@@ -1,6 +1,6 @@
 # Library
 
-![image](static/screenshot.png)
+![image](./static/Screenshot.png)
 
 This is a Library Javascript project where user can dynamically add books and store in localstorage. User can toggle between read and not read button. user can delete and add a book.
 
