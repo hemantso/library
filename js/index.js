@@ -1,4 +1,4 @@
-import books from './data.js';
+import books from './data';
 
 const myLibrary = [];
 
@@ -8,13 +8,6 @@ function Book(title, author, pages, status = false) {
   this.pages = pages;
   this.status = status;
 }
-
-const addBookToLibrary = (title, author, pages) => {
-  const book = new Book(title, author, pages);
-  myLibrary.push(book);
-  renderTable();
-};
-
 const findQueryAttachAction = (nameQuery, action) => {
   const selectedEl = document.querySelectorAll(nameQuery);
   selectedEl.forEach((el) => {
@@ -22,6 +15,18 @@ const findQueryAttachAction = (nameQuery, action) => {
     el.style.cursor = 'pointer';
   });
 };
+
+function handleStatusChanges(e) {
+  const statusSpan = e.currentTarget;
+  statusSpan.innerText = 'Read';
+  statusSpan.classList.remove('badge-secondary');
+  statusSpan.classList.add('badge-success');
+}
+function handleDelete(e) {
+  const RowId = e.currentTarget.id;
+  myLibrary.splice(RowId, 1);
+  renderTable(); // eslint-disable-line 
+}
 const renderTable = () => {
   const tableBody = document.getElementById('table-body');
   let talbeContent = '';
@@ -35,19 +40,11 @@ const renderTable = () => {
   findQueryAttachAction('.del', handleDelete);
 };
 
-function handleDelete(e) {
-  const RowId = e.currentTarget.id;
-  myLibrary.splice(RowId, 1);
+const addBookToLibrary = (title, author, pages) => {
+  const book = new Book(title, author, pages);
+  myLibrary.push(book);
   renderTable();
-}
-
-function handleStatusChanges(e) {
-  const statusSpan = e.currentTarget;
-  statusSpan.innerText = 'Read';
-  statusSpan.classList.remove('badge-secondary');
-  statusSpan.classList.add('badge-success');
-}
-
+};
 function handleClick() {
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
@@ -58,11 +55,11 @@ function handleClick() {
     author.value = '';
     pages.value = '';
   } else {
-    alert('Book has not been added because of the missing fields');
+    alert('Book has not been added because of the missing fields'); // eslint-disable-line no-alert
   }
 }
 
-window.onload = function () {
+window.onload = () => {
   books.forEach(({ title, author, pages }) => {
     addBookToLibrary(title, author, pages);
   });
