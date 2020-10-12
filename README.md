@@ -10,6 +10,13 @@ This is a Library Javascript project where user can dynamically add books and st
 - CSS
 - Javascript
 
+## Project setup
+
+- Clone the repository `git clone https://github.com/hemant-soni-vst-au4/library`
+- `cd libarary`
+- Open html file with live server
+- click on add book button to add new book
+
 ## Live Demo
 
 [Live Demo Link](https://hemant-soni-vst-au4.github.io/library/)
