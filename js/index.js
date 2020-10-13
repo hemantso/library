@@ -80,7 +80,7 @@ function handleClick() {
 }
 
 window.onload = function () {  // eslint-disable-line
-  const isEmpty = JSON.parse(localStorage.getItem('myLibrary')).length > 0;
+  const isEmpty = myLibrary.length > 0;
 
   if (!localStorage.getItem('myLibrary') || !isEmpty) {
     books.forEach(({ title, author, pages }) => {
